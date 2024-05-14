@@ -1,0 +1,20 @@
+.nav {
+  background-color: orangered;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* making class global, so we can use it without importing entire module */
+/* :global(.test) {
+  background-color: red;
+} */
+
+/* useful when we are already provided with a class, 
+for example react router gives class active to link that is currently on, so we can use that like this.
+otherwise, if we need global class, we'd put it in index.css, not in any module */
+.nav :global(.active) {
+  background-color: green;
+}
