@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import Homepage from "./pages/Homepage";
@@ -43,10 +43,7 @@ function App() {
         <Route path="login" element={<Login />} />
 
         <Route path="app" element={<AppLayout />}>
-          <Route
-            index
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          />
+          <Route index element={<Navigate replace to="cities" />} />
 
           <Route
             path="cities"
@@ -71,3 +68,4 @@ function App() {
 export default App;
 
 //"*" route wil be matched if none of the other url are matched, and then display page not found
+// Navigate replace  -  replace is to replace current element in history stack, so we can go to previous page when we click on back button in browser
