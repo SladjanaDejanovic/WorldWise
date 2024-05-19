@@ -4,6 +4,7 @@ import Message from "./Message";
 import styles from "./CountryList.module.css";
 
 function CountryList({ cities, isLoading }) {
+  const key = cities.id;
   if (isLoading) return <Spinner />;
 
   if (!cities.length)
@@ -22,7 +23,7 @@ function CountryList({ cities, isLoading }) {
   return (
     <ul className={styles.countryList}>
       {countries.map((country) => (
-        <CountryItem country={country} key={cities.country} />
+        <CountryItem country={country} key={key} />
       ))}
     </ul>
   );
