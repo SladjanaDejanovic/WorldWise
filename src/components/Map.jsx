@@ -8,29 +8,28 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import { useNavigate, useSearchParams } from "react-router-dom";
+// showing flag emoji in browser
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
-
-// showing flag emoji in browser
-import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 polyfillCountryFlagEmojis();
 
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams] = useSearchParams();
+
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
 
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
+  const [mapLat, mapLng] = useUrlPosition();
 
   useEffect(
     function () {
