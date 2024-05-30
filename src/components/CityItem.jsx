@@ -2,16 +2,6 @@ import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
 import { useCities } from "../contexts/CitiesContext";
 
-//////to fix not showing flag emojies in browser
-// const flagemojiToPNG = (flag) => {
-//   var countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
-//     .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-//     .join("");
-//   return (
-//     <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
-//   );
-// };
-
 // showing flag emoji in browser
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 polyfillCountryFlagEmojis();
