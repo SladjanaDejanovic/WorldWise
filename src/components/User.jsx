@@ -23,7 +23,6 @@ function User() {
 export default User;
 
 /*
-CHALLENGE
 
 1) Add `AuthProvider` to `App.jsx`
 2) In the `Login.jsx` page, call `login()` from context
