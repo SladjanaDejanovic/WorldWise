@@ -1,4 +1,3 @@
-// import { useNavigate } from "react-router-dom";
 import styles from "./Map.module.css";
 import {
   MapContainer,
@@ -8,7 +7,7 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-// showing flag emoji in browser
+
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
